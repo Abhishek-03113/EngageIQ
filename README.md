@@ -30,7 +30,7 @@ Team Name: Team Unique
 ## Live Preview
 Website: https://iq-engage.vercel.app/
 
-Video: 
+Video:  
 
 
 ## Key Features
@@ -68,8 +68,8 @@ Video:
 ### Steps
 1. Clone the repository:
    ```bash
-   git clone https://github.com/Abhishek-03113/socialMediaAnalysis
-   cd social_analysis
+   git clone https://github.com/Abhishek-03113/EngageIQ
+   cd app
    ```
 2. Install dependencies:
    ```bash
