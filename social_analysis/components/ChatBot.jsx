@@ -1,22 +1,48 @@
 "use client";
 
 import { useState } from "react";
+import { Bot } from "lucide-react";
+import {
+    Dialog,
+    DialogContent,
+    DialogHeader,
+    DialogTitle,
+} from "@/components/ui/dialog";
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
-import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
-import { LoadingSpinner } from "@/components/ui/spinner";
-import { CircleX, Bot } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import { Progress } from "@/components/ui/progress";
 
 export default function PostAnalyzer() {
-    const [isVisible, setIsVisible] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [progress, setProgress] = useState(0);
     const [postType, setPostType] = useState("");
     const [results, setResults] = useState([]);
 
-    const handleAnalyze = async () => {
-        if (!postType) return;
-
+    const handlePostTypeChange = async (value) => {
+        setPostType(value);
         setLoading(true);
         setResults([]);
+        setProgress(0);
+
+        // Simulate progress
+        const progressInterval = setInterval(() => {
+            setProgress(prev => {
+                if (prev >= 90) {
+                    clearInterval(progressInterval);
+                    return 90;
+                }
+                return prev + 10;
+            });
+        }, 100);
 
         try {
             const response = await fetch('/api/chatbot', {
@@ -24,7 +50,7 @@ export default function PostAnalyzer() {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ postType }),
+                body: JSON.stringify({ postType: value }),
             });
 
             if (!response.ok) {
@@ -33,82 +59,90 @@ export default function PostAnalyzer() {
 
             const data = await response.json();
             setResults(data.results || []);
+            setProgress(100);
         } catch (error) {
             console.error('Error:', error);
             setResults(['An error occurred. Please try again.']);
         } finally {
-            setLoading(false);
+            clearInterval(progressInterval);
+
+            setTimeout(() => {
+                setLoading(false);
+                setProgress(0);
+            }, 200);
         }
     };
 
     return (
-        <div className="fixed bottom-5 right-5 z-50">
-            {/* Toggle Button */}
-            {!isVisible && (
-                <div
-                    className="flex p-3 border-blue-500 rounded-lg shadow-lg items-center cursor-pointer bg-slate-900 text-white"
-                    onClick={() => setIsVisible(true)}
-                >
-                    <p className="text-sm mr-2">Analyze Post</p>
-                    <Bot size={24} />
-                </div>
-            )}
+        <>
+            <Button
+                onClick={() => setIsOpen(true)}
+                className="fixed top-5 right-5 flex items-center space-x-2 bg-slate-900"
+            >
+                <span>Analyze Post</span>
+                <Bot className="h-5 w-5" />
+            </Button>
 
-            {/* Analysis Window */}
-            {isVisible && (
-                <div className=" bg-white p-6 border-t-4 border-blue-500 shadow-lg rounded-t-lg">
-                    {/* Close Button */}
-                    <button
-                        onClick={() => setIsVisible(false)}
-                        className="absolute top-2 right-2 p-2 text-gray-600 hover:text-gray-800"
-                    >
-                        <CircleX size={24} />
-                    </button>
+            <Dialog open={isOpen} onOpenChange={setIsOpen}>
+                <DialogContent className="max-w-5xl flex flex-col h-[90vh]">
+                    <DialogHeader className={""}>
+                        <DialogTitle> Social Media Analysis Analysis</DialogTitle>
+                    </DialogHeader>
 
-                    <div className="flex space-y-4">
-                        {/* Post Type Select */}
-                        <Select value={postType} onValueChange={setPostType}>
-                            <SelectTrigger>
-                                <SelectValue placeholder="Select Post Type" />
-                            </SelectTrigger>
-                            <SelectContent>
-                                <SelectItem value="Image">Image</SelectItem>
-                                <SelectItem value="Reel">Reel</SelectItem>
-                                <SelectItem value="Carousel">Carousel</SelectItem>
-                                <SelectItem value="Video">Video</SelectItem>
-                            </SelectContent>
-                        </Select>
+                    <hr className="border-t border-gray-200" />
 
-                        {/* Analyze Button */}
-                        <Button
-                            onClick={handleAnalyze}
-                            disabled={loading || !postType}
-                            className="bg-blue-500 text-white w-full"
-                        >
-                            {loading ? <LoadingSpinner /> : "Analyze"}
-                        </Button>
+                    {loading && (
+                        <div className="absolute top-1 left-0 right-0">
+                            <Progress value={progress} className="h-2 rounded-full" />
+                        </div>
+                    )}
 
-                        {/* Results Display */}
-                        {results.length > 0 && (
-                            <div className="space-y-2">
-                                {results.map((result, index) => (
-                                    <div
-                                        key={index}
-                                        className="p-3 bg-gray-100 rounded-lg text-sm"
-                                    >
-                                        • {result}
+                    <div className="flex h-full mt-2">
+                        <div className="">
+                            <h3 className="text-lg font-medium mb-4">Select Post Type</h3>
+                            <Select value={postType} onValueChange={handlePostTypeChange}>
+                                <SelectTrigger>
+                                    <SelectValue placeholder="Choose a post type" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                    <SelectItem value="Image">Image</SelectItem>
+                                    <SelectItem value="Reel">Reel</SelectItem>
+                                    <SelectItem value="Carousel">Carousel</SelectItem>
+                                    <SelectItem value="Video">Video</SelectItem>
+                                </SelectContent>
+                            </Select>
+                        </div>
+
+                        <Separator orientation="vertical" className="mx-6" />
+
+                        <div className="flex-1">
+                            <h3 className="text-lg font-medium mb-4">Analysis Results</h3>
+
+                            <div className="h-[calc(100%-2rem)] overflow-y-auto pr-4">
+                                {loading ? (
+                                    <div className="flex items-center justify-center h-40 text-muted-foreground">
+                                        Analyzing post type...
                                     </div>
-                                ))}
+                                ) : results.length > 0 ? (
+                                    <div className="space-y-4">
+                                        {results.map((result, index) => (
+                                            <Card key={index}>
+                                                <CardContent className="pt-6">
+                                                    <p className="text-gray-700">• {result}</p>
+                                                </CardContent>
+                                            </Card>
+                                        ))}
+                                    </div>
+                                ) : (
+                                    <div className="flex items-center justify-center h-40 text-muted-foreground">
+                                        Select a post type to see analysis
+                                    </div>
+                                )}
                             </div>
-                        )}
-
-                        {/* Loading Indicator */}
-                        {loading && (
-                            <LoadingSpinner className="mx-auto" />
-                        )}
+                        </div>
                     </div>
-                </div>
-            )}
-        </div>
+                </DialogContent>
+            </Dialog>
+        </>
     );
 }
