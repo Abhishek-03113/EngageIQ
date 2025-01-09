@@ -1,26 +1,29 @@
 from astrapy import DataAPIClient
 import json
+import os 
 
+DB_TOKEN = os.environ.get("ASTRA_DB_TOKEN")
+DB_ENDPOINT = os.environ.get("ASTRA_DB_ENDPOINT") 
 
 # Initialize the client
-client = DataAPIClient("AstraCS:ebbTBKFxqHoYNtFNWKRpXzAg:1e672516d6afcb976ddaac95ec794709195bd6f6a8f514a801f3209e4aa22a06")
+client = DataAPIClient(DB_TOKEN)
 db = client.get_database_by_api_endpoint(
-  "https://24a932ed-b478-466d-82cb-4cc13cfb9fc8-us-east-2.apps.astra.datastax.com"
+  DB_ENDPOINT
 )
 
 
 """Data Ingress"""
 
-# create_collection = db.create_collection("ig_data") 
-# collection = db.get_collection("ig_data") 
+create_collection = db.create_collection("ig_data") 
+collection = db.get_collection("ig_data") 
 
-# data = 'Data.json' 
+data = 'Data.json' 
 
-# with open(data) as f: 
-#     data = json.load(f)
+with open(data) as f: 
+    data = json.load(f)
     
-#     for i in data: 
-#         collection.insert_one(i) 
+    for i in data: 
+        collection.insert_one(i) 
 
 
 """Querying Data""" 
