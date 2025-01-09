@@ -29,7 +29,7 @@ const Team = () => {
         },
         {
             name: "Shravani Shalgar",
-            role: "Full Stack Developer",
+            role: "UI/UX Designer",
             github: "https://github.com/sshalgar",
             twitter: "https://twitter.com/", 
             linkedin: "https://www.linkedin.com/in/shravani-shalgar-4153a3240"
