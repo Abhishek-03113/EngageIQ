@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { ChevronUp, ChevronDown } from "lucide-react";
 import ChartComponent from "@/components/Chart";
 import Chatbot from "@/components/ChatBot";
+import DashHeader from "@/components/DashboardHeader";
 
 
 export default function Dashboard() {
@@ -99,23 +100,31 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="relative mb-6">
 
-      <Chatbot />
 
+      <div className="flex justify-between items-start mb-4">
+        <h2 className="text-2xl font-semibold text-gray-900">Dashboard Overview</h2>
+
+        <Chatbot />
+      </div>
 
 
 
       {/* Visualization */}
       <ChartComponent data={data} />
 
+      {/* 
+      <Chatbot /> */}
+
       {/* Filter Section */}
-      <div className="flex items-center space-x-4">
+      <div className="flex flex-col  space-x-4 space-y-2 items-center overflow-x-auto p-1 mb-2 md:flex-row">
         <Dropdown
           value={postType}
           onChange={setPostType}
           options={["Image", "Video", "Reel", "Carousel"]}
           label="Filter by Post Type"
+
         />
         <input
           type="text"
@@ -123,6 +132,7 @@ export default function Dashboard() {
           onChange={(e) => setSearchQuery(e.target.value)}
           placeholder="Search by likes"
           className="border border-gray-300 rounded p-2"
+
         />
         <input
           type="date"

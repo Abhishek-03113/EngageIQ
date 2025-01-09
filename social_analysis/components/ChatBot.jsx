@@ -77,11 +77,13 @@ export default function PostAnalyzer() {
         <>
             <Button
                 onClick={() => setIsOpen(true)}
-                className="fixed top-5 right-5 flex items-center space-x-2 bg-slate-900"
+                className="flex items-center space-x-2 bg-slate-900"
             >
                 <span>Analyze Post</span>
-                <Bot className="h-5 w-5" />
+                <Bot size={24} className="h-7 w-7" />
             </Button>
+
+
 
             <Dialog open={isOpen} onOpenChange={setIsOpen}>
                 <DialogContent className="max-w-5xl flex flex-col h-[90vh]">

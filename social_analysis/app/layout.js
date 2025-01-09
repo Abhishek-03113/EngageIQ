@@ -1,5 +1,6 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Poppins } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/Header";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -11,23 +12,32 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const poppins = Poppins({
+  variable: "--font-poppins",
+  subsets: ["latin"],
+  weight: ['400', '600'],
+  subsets: ['latin'],
+  display: 'swap',
+});
+
+
+
+
 export const metadata = {
   title: "Social Media Analysis Dashboard",
   description: " Analyze social media data to get insights.",
 };
 
+
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={` ${poppins.variable} antialiased`}
       >
-        <div className={"min-h-screen bg-gray-50 text-gray-800"}>
-          {/* <header className={"bg-primary  py-4 px-6 shadow-md"}>
-            <h1 className="text-2xl font-bold">Social Media Dashboard</h1>
-          </header> */}
-          <main className="container mx-auto p-6">{children}</main>
-        </div>
+        {children}
+
       </body>
     </html>
   );
