@@ -13,6 +13,26 @@ const Team = () => {
             twitter: "https://twitter.com/codewithdinesh",
             linkedin: "https://linkedin.com/in/dineshrathod03"
         },
+        {
+            name: "Abhishek Pawar",
+            role: "AI Developer", 
+            github: "github.com/abhishek-03113", 
+            twitter: "https://twitter.com/esc_abhishek",
+            linkedin: "https://www.linkedin.com/in/abhishekpawar3113/"
+        },
+        {
+            name: "Mayank Mehta",
+            role: "Data Scientist", 
+            github: "https://github.com/mayankmehta8",
+            twitter: "mailto:mayank8802@gmail.com",
+            linkedin: "https://www.linkedin.com/in/mayank-mehta-123734229/"
+        },
+        {
+            name: "Shravani Shalgar",
+            role: "Full Stack Developer",
+            github: "github.com/",
+            twitter: "https://twitter.com/", 
+        }
 
     ];
 
