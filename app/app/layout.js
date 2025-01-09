@@ -23,10 +23,43 @@ const poppins = Poppins({
 
 
 
+// SEO Metadata
 export const metadata = {
-  title: "Social Media Analysis Dashboard",
-  description: " Analyze social media data to get insights.",
+  metadataBase: new URL("https://iq-engage.vercel.app"),
+  title: "EngageIQ: Social Media Analysis",
+  description: "Analyze social media data to get insights.",
+  keywords: "EngageIQ, Social Media Analysis, engage iq, codewithdinesh, Langflow, Web Development, Next.js, React",
+  icons: {
+    icon: "/favicon.ico",
+  },
+  openGraph: {
+    title: "EngageIQ: Social Media Analysis",
+    description: "Analyze social media data to get insights.",
+    url: "https://iq-engage.vercel.app",
+    siteName: "EngageIQ",
+    images: [
+      {
+        url: "/dashboard.png",
+        width: 1200,
+        height: 630,
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "EngageIQ: Social Media Analysis",
+    description: "Analyze social media data to get insights.",
+    creator: "codewithdinesh",
+    images: [
+      {
+        url: "/dashboard.png",
+        alt: "EngageIQ: Social Media Analysis",
+      },
+    ],
+  },
 };
+
 
 
 

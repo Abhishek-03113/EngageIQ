@@ -83,12 +83,10 @@ export default function PostAnalyzer() {
                 <Bot size={24} className="h-7 w-7" />
             </Button>
 
-
-
             <Dialog open={isOpen} onOpenChange={setIsOpen}>
-                <DialogContent className="max-w-5xl flex flex-col h-[90vh]">
-                    <DialogHeader className={""}>
-                        <DialogTitle> Social Media Analysis Analysis</DialogTitle>
+                <DialogContent className="max-w-5xl flex flex-col h-[90vh] overflow-hidden">
+                    <DialogHeader>
+                        <DialogTitle>Social Media Analysis</DialogTitle>
                     </DialogHeader>
 
                     <hr className="border-t border-gray-200" />
@@ -100,7 +98,8 @@ export default function PostAnalyzer() {
                     )}
 
                     <div className="flex h-full mt-2">
-                        <div className="">
+                        {/* Post Type Selector */}
+                        <div>
                             <h3 className="text-lg font-medium mb-4">Select Post Type</h3>
                             <Select value={postType} onValueChange={handlePostTypeChange}>
                                 <SelectTrigger>
@@ -117,10 +116,12 @@ export default function PostAnalyzer() {
 
                         <Separator orientation="vertical" className="mx-6" />
 
-                        <div className="flex-1">
+                        {/* Results Section */}
+                        <div className="flex-1 mb-10">
                             <h3 className="text-lg font-medium mb-4">Analysis Results</h3>
 
-                            <div className="h-[calc(100%-2rem)] overflow-y-auto pr-4">
+
+                            <div className="h-[calc(100%-2rem)] overflow-y-auto pr-4 pb-6 mb-6">
                                 {loading ? (
                                     <div className="flex items-center justify-center h-40 text-muted-foreground">
                                         Analyzing post type...
@@ -146,5 +147,6 @@ export default function PostAnalyzer() {
                 </DialogContent>
             </Dialog>
         </>
+
     );
 }
