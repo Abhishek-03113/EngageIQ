@@ -4,6 +4,9 @@ import { useState, useEffect } from "react";
 import Dropdown from "@/components/Dropdown";
 import { Button } from "@/components/ui/button";
 import { ChevronUp, ChevronDown } from "lucide-react";
+import ChartComponent from "@/components/Chart";
+import Chatbot from "@/components/ChatBot";
+
 
 export default function Dashboard() {
   const [data, setData] = useState([]);
@@ -97,6 +100,15 @@ export default function Dashboard() {
 
   return (
     <div className="p-6 space-y-6">
+
+      <Chatbot />
+
+
+
+
+      {/* Visualization */}
+      <ChartComponent data={data} />
+
       {/* Filter Section */}
       <div className="flex items-center space-x-4">
         <Dropdown
