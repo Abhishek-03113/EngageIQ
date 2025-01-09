@@ -1,12 +1,14 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Dropdown from "@/components/Dropdown";
+
+
 import { Button } from "@/components/ui/button";
 import { ChevronUp, ChevronDown } from "lucide-react";
 import ChartComponent from "@/components/Chart";
 import Chatbot from "@/components/ChatBot";
-import DashHeader from "@/components/DashboardHeader";
+import Dropdown from "@/components/DropDown";
+
 
 
 export default function Dashboard() {
@@ -20,6 +22,8 @@ export default function Dashboard() {
   const [currentPage, setCurrentPage] = useState(1);
   const [minDate, setMinDate] = useState("");
   const [maxDate, setMaxDate] = useState("");
+
+  
 
   // Fetching Data from JSON
   useEffect(() => {

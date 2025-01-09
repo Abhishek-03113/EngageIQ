@@ -1,6 +1,6 @@
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
 
-export default function Dropdown({ value, onChange, options }) {
+const Dropdown = ({ value, onChange, options }) => {
     return (
         <Select value={value} onValueChange={onChange}>
             <SelectTrigger className="w-64">
@@ -16,3 +16,4 @@ export default function Dropdown({ value, onChange, options }) {
         </Select>
     );
 }
+export default Dropdown;
