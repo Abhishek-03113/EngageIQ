@@ -21,7 +21,7 @@ Team Name: Team Unique
 <td width="50%">
 
 ### Team Logo
-<img src="social_analysis/public/TeamUnique.png" width="200" height="200" alt="Team Unique Logo">
+<img src="app/public/TeamUnique.png" width="200" height="200" alt="Team Unique Logo">
 
 </td>
 </tr>
@@ -94,7 +94,7 @@ Video:
 - **AI Integration:** GPT for insights and recommendations
 
 ## Screenshots
-![Dashboard](social_analysis/public/dashboard.png)
+![Dashboard](app/public/dashboard.png)
 
 ## Acknowledgments
 - **Langflow** for enabling seamless GPT integration.
