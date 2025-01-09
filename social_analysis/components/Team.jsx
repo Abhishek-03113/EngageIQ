@@ -16,7 +16,7 @@ const Team = () => {
         {
             name: "Abhishek Pawar",
             role: "AI Developer", 
-            github: "github.com/abhishek-03113", 
+            github: "https://github.com/abhishek-03113", 
             twitter: "https://twitter.com/esc_abhishek",
             linkedin: "https://www.linkedin.com/in/abhishekpawar3113/"
         },
