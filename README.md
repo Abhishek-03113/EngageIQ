@@ -4,14 +4,28 @@ EngageIQ is an intelligent social media analytics platform that combines the pow
 
 ---
 
-## Team: Team Unique
+# Team Details
+Team Name: Team Unique
 
-![TeamLogo](social_analysis/public/TeamUnique.png)
+<table>
+<tr>
+<td width="50%">
 
+### Team Members
 - Dinesh Rathod
 - Abhishek Pawar
 - Mayank Mehta
 - Shravani Shalgar
+
+</td>
+<td width="50%">
+
+### Team Logo
+<img src="social_analysis/public/TeamUnique.png" width="200" height="200" alt="Team Unique Logo">
+
+</td>
+</tr>
+</table>
 
 ## Live Preview
 Website: https://iq-engage.vercel.app/
