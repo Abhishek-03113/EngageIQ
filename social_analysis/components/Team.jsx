@@ -30,8 +30,9 @@ const Team = () => {
         {
             name: "Shravani Shalgar",
             role: "Full Stack Developer",
-            github: "github.com/",
+            github: "https://github.com/sshalgar",
             twitter: "https://twitter.com/", 
+            linkedin: "https://www.linkedin.com/in/shravani-shalgar-4153a3240"
         }
 
     ];
