@@ -12,10 +12,10 @@ Team Name: Team Unique
 <td width="50%">
 
 ### Team Members
-- Dinesh Rathod
-- Abhishek Pawar
-- Mayank Mehta
-- Shravani Shalgar
+- [Dinesh Rathod](https://github.com/codewithdinesh)
+- [Abhishek Pawar](https://github.com/abhishek-03113)
+- [Mayank Mehta](https://github.com/mayankmehta8)
+- [Shravani Shalgar](https://github.com/sshalgar)
 
 </td>
 <td width="50%">
