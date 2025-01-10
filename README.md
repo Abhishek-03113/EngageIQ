@@ -30,21 +30,32 @@ Team Name: Team Unique
 ## Live Preview
 Website: https://iq-engage.vercel.app/
 
-Video:  
+Video:  https://www.youtube.com/watch?v=eNLKAJuh2LI   
 
 
 ## Key Features
 
-### Real-time Analytics
-- Track engagement metrics across different post types instantly.
+
+### Automated Data Analysis
+- Automate data analysis to save time and improve efficiency.
+
+### Enhanced Decision-Making
+- Enhance decision-making with intuitive visualizations.
 
 ### AI-Powered Insights
-- Leverage GPT integration to generate intelligent recommendations for content optimization.
-- Gain insights tailored to specific post types and user behavior.
+- Get intelligent recommendations using GPT integration.
 
 ### Advanced Visualization
-- Beautiful charts and graphs for better understanding of data.
-- Compare engagement trends and metrics with intuitive visual elements.
+- Beautiful charts and graphs for better understanding.
+
+### Content Strategy Optimization
+- Optimize content strategies with actionable, data-driven recommendations.
+
+### Brand Reputation Protection
+- Protect brand reputation by identifying trends and issues quickly.
+
+### Real-time Analytics
+- Track engagement metrics across different post types instantly.
 
 ---
 
