@@ -7,6 +7,7 @@ import Overview from '@/components/Overview';
 import Features from '@/components/Features';
 import Hero from '@/components/Hero';
 import Team from '@/components/Team';
+import { SiteFooter } from '@/components/Footer';
 
 
 const LandingPage = () => {
@@ -27,6 +28,8 @@ const LandingPage = () => {
 
             {/* Team Section */}
             <Team />
+
+            <SiteFooter />
 
         </div>
     );

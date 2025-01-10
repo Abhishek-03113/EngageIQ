@@ -16,18 +16,34 @@ const Features = () => {
                 </h2>
                 <div className="grid md:grid-cols-3 gap-8">
                     {[
-                        {
-                            title: "Real-time Analytics",
-                            description: "Track engagement metrics across different post types instantly"
-                        },
+
                         {
                             title: "AI-Powered Insights",
                             description: "Get intelligent recommendations using GPT integration"
                         },
                         {
-                            title: "Advanced Visualization",
-                            description: "Beautiful charts and graphs for better understanding"
-                        }
+                            title: "Enhanced Decision-Making",
+                            description: "Enhance decision-making with beautiful, intuitive visualizations"
+                        },
+
+                        {
+                            title: "Content Strategy Optimization",
+                            description: "Optimize content strategies with actionable, data-driven recommendations"
+                        },
+                        {
+                            title: "Engagement Monitoring",
+                            description: "Monitor real-time engagement metrics across various post types"
+                        },
+                        {
+                            title: "Automated Data Analysis",
+                            description: "Automate data analysis to save time and improve efficiency"
+                        },
+                        {
+                            title: "Brand Reputation Protection",
+                            description: "Protect brand reputation by identifying trends and issues quickly"
+                        },
+
+
                     ].map((feature, index) => (
                         <Card key={index} className="border-gray-200 hover:shadow-lg transition-shadow">
                             <CardHeader>
