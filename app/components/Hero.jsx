@@ -26,7 +26,7 @@ const Hero = () => {
 
                         </Link>
 
-                        <Link href="">
+                        <Link href="https://www.youtube.com/watch?v=eNLKAJuh2LI">
                             <Button
                                 size="lg"
                                 variant="outline"
